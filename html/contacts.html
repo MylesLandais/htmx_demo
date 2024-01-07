@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Contacts</title>
+        <meta name="description" content="This are the contacts in your agenda">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://unpkg.com/missing.css@1.1.1">
+        <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="sidebar-layout fullscreen">
+        <header>
+            <ul role="list">
+                <li><a href="/">Home</a></li>
+                <li><a href="/contacts">List Contacts</a></li>
+                <li><a href="/create user">Create Contact</a></li>
+            </ul>
+        </header>
+      <div class="col-4" id="table">
+        <main>
+       <table class="table left">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Actions</th>
+        </tr>
+        {{ range .Users }}
+        <tr>
+            <form id="td_form">
+              
+            <td>{{ .FirstName }}</td>
+            <td>{{ .LastName }}</td>
+            <td>{{ .Email }}</td>
+            <td>{{ .PhoneNumber }}</td>
+            <td> <a hx-delete="/rm/{{ .Id }}" hx-target="#table" hx-swap="outerHTML" href="/rm/{{ .Id }}">delete</a></td>
+            <td> <a href="/update/{{ .Id }}" id="{{ .Id }}">update</a></td> 
+            </form>
+        </tr>
+        {{  end}}
+       </table> 
+        </main>
+      </div>
+    </div>
+    </body>
+</html>

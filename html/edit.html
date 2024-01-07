@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/missing.css@1.1.1">
+    <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div id="myDiv">
+      
+    <form hx-patch="/update/{{ $.User.Id }}" hx-target="body" hx-swap="outerHTML" hx-push-url="/contacts" hx-refresh="true">
+      <input type="text" name="firstName" value="{{ $.User.FirstName }}">
+      <input type="text" name="lastName" value="{{ $.User.LastName }}">
+      <input type="text" name="email" value="{{ $.User.Email }}">
+      <input type="text" name="phoneNumber" value="{{ $.User.PhoneNumber }}">
+      <p><button class="button big" type="submit">create</button></p>
+    </form>
+  
+    </div>
+  </body>
+</html>

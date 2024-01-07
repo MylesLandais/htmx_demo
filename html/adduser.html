@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Create Contacts</title>
+        <meta name="description" content="Create a contact in your agenda">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://unpkg.com/missing.css@1.1.1">
+        <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="sidebar-layout fullscreen">
+        <header>
+            <ul role="list">
+                <li><a href="/">Home</a></li>
+                <li><a href="/contacts">List Contacts</a></li>
+                <li><a href="/create user">Create Contact</a></li>
+            </ul>
+        </header>
+        <div class="col-4 fullscreen">
+        <main>
+        <form hx-post="/addUser" hx-boost="true" class="table rows">
+          <p><label for=inp>
+                Name
+                <input id=inp type="text" name="firstName" >
+          </label></p>
+          <p><label for=inp>
+                Last Name
+                <input id=inp type="text" name="lastName">
+          </label> </p>
+          <p><label for=inp>
+                Email
+                <input id=inp type="text" name="email">
+          </label></p>
+          <p><label for=inp>
+                Phone
+                <input id=in type="text" name="phoneNumber">
+          </label></p>
+          <p><button class="button big" type="submit">create</button></p>
+        </form>
+        </main>
+        <footer></footer>
+      </div>
+      </div>
+    </body>
+</html>
